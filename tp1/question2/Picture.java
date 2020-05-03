@@ -20,7 +20,7 @@ public class Picture {
     private Square window;
     private Triangle roof;
     private Circle sun;
-
+    private boolean terreFixe = true;
     /**
      * Constructor for objects of class Picture
      */
@@ -50,7 +50,7 @@ public class Picture {
         roof.makeVisible();
 
         sun = new Circle();
-        sun.changeColor("yellow");
+        sun.changeColor("blue");
         sun.moveHorizontal(180);
         sun.moveVertical(-10);
         sun.changeSize(60);
@@ -82,5 +82,25 @@ public class Picture {
             sun.changeColor("yellow");
         }
     }
+    
+    public void terreFixeM() {
+        int distance=80;
+        
+        if (terreFixe == true) { //si la terre est fixe, le soleil se couche
+            for (int i = 0; i < distance; i++) {
 
+            sun.moveVertical(1);
+            
+        }
+        terreFixe=false;
+        }
+        else{        //le soleil se leve
+        for (int i = 0; i < distance; i++) {
+
+            sun.moveVertical(-1);
+            
+        }
+        }
+        
+    }
 }
